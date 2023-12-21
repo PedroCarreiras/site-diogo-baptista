@@ -48,6 +48,10 @@ header {
     background-color: #b4c7e7;
 }
 
+header > h1 {
+    text-align: center
+}
+
 figure {
     display: flex;
     flex-direction: column;
@@ -61,7 +65,7 @@ figure {
 }
 
 main {
-    padding: 2em;
+    padding: 2em min(2em, 1dvw) 2em;
 }
 
 .content-grid {
@@ -72,7 +76,7 @@ main {
     --content-size : calc(100% - (var(--padding-inline) * 2));
     --breakout-size: calc((var(--breakout-max-width) - var(--content-max-width)) / 2);
 
-    margin: 10px 10px;
+    margin: min(10px, 1dvw) min(10px, 1dvw);
     row-gap: 3em;
     display: grid;
     grid-template-columns:
@@ -103,6 +107,7 @@ video {
     border-radius: 1em;
     width: 100%;
     height: auto;
+    max-width: 100dvw;
 }
 
 .hsection {
@@ -115,6 +120,7 @@ video {
 #presentation-photo {
     height: auto;
     flex-grow: 1;
+    max-width: 40dvw;
 }
 
 #home-links {
@@ -160,4 +166,33 @@ footer {
 footer p {
     width: min(70dvw, 800px);
     margin: auto;
+}
+
+
+@media (max-width:1080px) {
+    #brands {
+        flex-direction: column;
+    }
+}
+
+@media (max-width:900px) {
+    header {
+        flex-direction: column;
+        row-gap: 3em;
+    }
+    #brands {
+        flex-direction: row;
+        justify-content: center;
+    }
+}
+
+@media (max-width:700px) {
+    nav ul {
+        flex-direction: column;
+        row-gap: 3em;
+    }
+
+    video {
+        grid-column: full-width;
+    }
 }
